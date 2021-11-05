@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './shared/components/header/header.component';
 import { HeaderModule } from './shared/components/header/header.module';
 import { ServicioFormComponent } from './shared/components/servicio-form/servicio-form.component';
+import { ServicioFormModule } from './shared/compnents/servicio-form/servicio-form.module';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { ServicioFormComponent } from './shared/components/servicio-form/servici
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HeaderModule
+    HeaderModule,
+    ServicioFormModule
   ],
   providers: [],
   bootstrap: [AppComponent]

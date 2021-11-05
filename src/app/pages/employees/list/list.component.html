@@ -1,0 +1,51 @@
+<h1 class="display-3 text-center">
+  Bienvenidos, <u class="text-success fw-bold">Leonardo</u>.
+</h1>
+<div class="table-responsive">
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">Nombre de servicio</th>
+        <th scope="col">Forma de contactar</th>
+        <th scope="col">Precio</th>
+        <th scope="col">Ubicacion</th>
+        <th scope="col">Descripcion</th>
+        <th scope="col">Acciones</th>
+        <!--class="d-none d-sm-block" -->
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="table-info" *ngFor="let item of fakeData">
+        <!--[0, 1, 2, 3, 4, 5]-->
+        <th scope="row">{{ item.name }}</th>
+        <td>{{ item.formacontacto }}</td>
+        <td>{{ item.precio }}</td>
+        <td>{{ item.ubicacion }}</td>
+        <td>{{ item.descripcion }}</td>
+        <td class="bnt-group d-none d-sm-block" role="group">
+          <button
+            type="button"
+            class="btn btn-warning m-1"
+            (click)="onGotoEdit(item)"
+          >
+            Editar
+          </button>
+          <button
+            type="button"
+            class="btn btn-warning m-1"
+            (click)="onGotoSee(item)"
+          >
+            Ver Detalles
+          </button>
+          <button
+            type="button"
+            class="btn btn-danger m-1"
+            (click)="onGotoDelete(item)"
+          >
+            Eliminar
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

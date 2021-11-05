@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NavigationExtras, Router } from '@angular/router';
+import { Servicio } from 'src/app/shared/models/servicio.interface';
 
 @Component({
   selector: 'app-details',
@@ -8,6 +9,7 @@ import { NavigationExtras, Router } from '@angular/router';
 })
 export class DetailsComponent implements OnInit {
   // below is same as in listcomponent.ts
+  servicio: Servicio = null;
   navigationExtras: NavigationExtras = {
     state: {
       value: null, // you can call this variable anything, employees, etc
@@ -15,13 +17,17 @@ export class DetailsComponent implements OnInit {
   };
   // above is same as in listcomponent.ts
 
-  servicio: any = null;
+  // servicio: any = null;
   constructor(private router: Router) {
     const navigation = this.router.getCurrentNavigation();
     this.servicio = navigation.extras.state;
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    if (typeof this.servicio === 'undefined'){
+      this.router.navigate(['list']);
+    }
+  }
   // below is same as in listcomponent.ts
   onGotoEdit(): void {
     this.navigationExtras.state.value = this.servicio;

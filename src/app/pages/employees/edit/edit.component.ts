@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Servicio } from 'src/app/shared/models/servicio.interface';
 
 @Component({
   selector: 'app-edit',
@@ -8,19 +9,28 @@ import { Router } from '@angular/router';
   styleUrls: ['./edit.component.css'],
 })
 export class EditComponent implements OnInit {
-  value = null;
+  servicio: Servicio;
   servicioForm: FormGroup;
   constructor(private router: Router, private fb: FormBuilder) {
     const navigation = this.router.getCurrentNavigation();
-    this.value = navigation?.extras?.state;
+    this.servicio = navigation?.extras?.state;
+    this.initForm();
   }
 
   ngOnInit(): void {
-    this.initForm();
+    if (typeof this.servicio === 'undefined'){
+      //Redirect!
+      this.router.navigate(['new'])
+    } else{
+      this.servicioForm.patchValue(this.servicio)
+    } //1:04:22
   }
 
   onSave(): void {
     console.log('Guardado!', this.servicioForm.value);
+  }
+  onGoBackToList():void {
+    this.router.navigate(['list'])
   }
   // declaring the FORM
   // group waits for an OBJECT

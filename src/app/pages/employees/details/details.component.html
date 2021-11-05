@@ -3,24 +3,24 @@
   <div class="card-body">
     <ul class="list-group list-group-flush">
       <li class="list-group-item">
-        Name:
-        <h5>Hazbin Hotel</h5>
+        Nombre:
+        <h5>{{servico.nombre}}</h5>
       </li>
       <li class="list-group-item">
         Forma de contacto:
-        <h5>299 422-0824</h5>
+        <h5>{{servicio.formacontacto}}</h5>
       </li>
       <li class="list-group-item">
         Precio del servicio:
-        <h5>9000</h5>
+        <h5>{{servicio.precio}</h5>
       </li>
       <li class="list-group-item">
         Ubicacion:
-        <h5>Paraguay y Primeros pobladores</h5>
+        <h5>{{ servicio.ubicacion }}</h5>
       </li>
       <li class="list-group-item">
         Descripcion:
-        <h5>Bienvenidos a Hazbin Hotel! esto es totalmente REAL! omaiga.</h5>
+        <h5>{{servicio.descripcion }}</h5>
       </li>
     </ul>
   </div>
@@ -38,3 +38,4 @@
 <button class="btn btn-primary mt-2" (click)="onGoBackToList()">
   Volver a la lista
 </button>
+{{ servicio | json }}

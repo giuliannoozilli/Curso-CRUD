@@ -15,28 +15,28 @@ export class ListComponent implements OnInit {
 
   fakeData = [
     {
-      name: 'Hazbin Hotel',
+      nombre: 'Hazbin Hotel',
       formacontacto: 'leo@gmail.com',
       precio: '65.200',
       ubicacion: 'Independencia 314',
       descripcion: 'Like a hula hula hoop, hula hula hoop, HULAHOOP!',
     },
     {
-      name: 'Hotel Cipo',
+      nombre: 'Hotel Cipo',
       formacontacto: 'gaby@hubmail.com',
       precio: '4.500',
       ubicacion: 'Esmeralda 129',
       descripcion: 'lorem ipsum, yes.',
     },
     {
-      name: 'xxTour',
+      nombre: 'xxTour',
       formacontacto: 'hubert@phub.com',
       precio: '170.245',
       ubicacion: 'Av. Alem 696',
       descripcion: 'Im coming for you, Zealous!',
     },
     {
-      name: 'Vuelta por Bellas Artes',
+      nombre: 'Vuelta por Bellas Artes',
       formacontacto: 'artsytype@proko.com',
       precio: '4.820',
       ubicacion: 'Neuquen 108',

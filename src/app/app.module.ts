@@ -5,22 +5,12 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './shared/components/header/header.component';
 import { HeaderModule } from './shared/components/header/header.module';
-import { ServicioFormComponent } from './shared/components/servicio-form/servicio-form.component';
-import { ServicioFormModule } from './shared/compnents/servicio-form/servicio-form.module';
+import { ServicioFormModule } from './shared/components/servicio-form/servicio-form.module';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    HeaderComponent,
-    ServicioFormComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HeaderModule,
-    ServicioFormModule
-  ],
+  declarations: [AppComponent, HeaderComponent],
+  imports: [BrowserModule, AppRoutingModule, HeaderModule, ServicioFormModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

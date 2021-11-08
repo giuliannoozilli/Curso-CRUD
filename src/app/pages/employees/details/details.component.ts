@@ -20,11 +20,11 @@ export class DetailsComponent implements OnInit {
   // servicio: any = null;
   constructor(private router: Router) {
     const navigation = this.router.getCurrentNavigation();
-    this.servicio = navigation.extras.state;
+    this.servicio = navigation?.extras?.state?.value;
   }
 
   ngOnInit(): void {
-    if (typeof this.servicio === 'undefined'){
+    if (typeof this.servicio === 'undefined') {
       this.router.navigate(['list']);
     }
   }

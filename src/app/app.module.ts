@@ -12,7 +12,11 @@ import { AngularFirestore } from '@angular/fire/compat/firestore';
 
 @NgModule({
   declarations: [AppComponent, HeaderComponent],
-  imports: [BrowserModule, AppRoutingModule, HeaderModule, ServicioFormModule,
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HeaderModule,
+    ServicioFormModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestore],
   providers: [AngularFirestore],

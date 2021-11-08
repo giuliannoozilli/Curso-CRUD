@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ServiciosService } from 'src/app/pages/employees/servicio.service';
 import { Servicio } from '../../models/servicio.interface';
 
 @Component({
@@ -11,7 +12,7 @@ import { Servicio } from '../../models/servicio.interface';
 export class ServicioFormComponent implements OnInit {
   servicio: Servicio = null;
   servicioForm: FormGroup;
-  constructor(private router: Router, private fb: FormBuilder) {
+  constructor(private router: Router, private fb: FormBuilder, private serviciosSvc: ServiciosService) {
     const navigation = this.router.getCurrentNavigation();
     this.servicio = navigation?.extras?.state?.value;
     this.initForm();
@@ -29,6 +30,11 @@ export class ServicioFormComponent implements OnInit {
 
   onSave(): void {
     console.log('Guardado!', this.servicioForm.value);
+    if (this.servicioForm.valid) {
+      const servicio = this.servicioForm.value;
+      const servicioId = this.servicio?.id || null;
+      this.serviciosSvc.onSaveServicio(servicio, servicioId) // aqui se espera el formulario y un id
+    }
   }
   onGoBackToList(): void {
     this.router.navigate(['list']);

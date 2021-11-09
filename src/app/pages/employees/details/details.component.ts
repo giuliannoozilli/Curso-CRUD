@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NavigationExtras, Router } from '@angular/router';
 import { Servicio } from 'src/app/shared/models/servicio.interface';
+import { ServiciosService } from '../servicio.service';
 
 @Component({
   selector: 'app-details',
@@ -18,7 +19,7 @@ export class DetailsComponent implements OnInit {
   // above is same as in listcomponent.ts
 
   // servicio: any = null;
-  constructor(private router: Router) {
+  constructor(private router: Router, private serviciosSvc: ServiciosService) {
     const navigation = this.router.getCurrentNavigation();
     this.servicio = navigation?.extras?.state?.value;
   }
@@ -33,9 +34,14 @@ export class DetailsComponent implements OnInit {
     this.navigationExtras.state.value = this.servicio;
     this.router.navigate(['edit'], this.navigationExtras);
   }
-
-  onDelete(): void {
-    alert('borra2!');
+  async onGotoDelete(): Promise<void> {
+    try {
+      await this.serviciosSvc.onDeleteServicios(this.servicio?.id);
+      alert('Borra2!');
+      this.onGoBackToList(); // redirecting you to the list page
+    } catch (err) {
+      console.log(err);
+    }
   }
   onGoBackToList(): void {
     // tslint:disable-next-line: max-line-length

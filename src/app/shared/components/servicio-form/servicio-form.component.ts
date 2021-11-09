@@ -29,11 +29,13 @@ export class ServicioFormComponent implements OnInit {
   }
 
   onSave(): void {
-    console.log('Guardado!', this.servicioForm.value);
+    alert('Guardado!')
+    console.log(this.servicioForm.value);
     if (this.servicioForm.valid) {
       const servicio = this.servicioForm.value;
       const servicioId = this.servicio?.id || null;
       this.serviciosSvc.onSaveServicio(servicio, servicioId) // aqui se espera el formulario y un id
+      this.servicioForm.reset()
     }
   }
   onGoBackToList(): void {

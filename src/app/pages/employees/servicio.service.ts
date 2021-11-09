@@ -8,7 +8,7 @@ import { Servicio } from 'src/app/shared/models/servicio.interface';
   providedIn: 'root'
 })
 export class ServiciosService {
-  servicios: Observable<Servicio[]>
+  servicios: Observable<Servicio[]> // the declaration "servicios becomes a OBSERVABLE" 1:44:40
 
   private serviciosCollection: AngularFirestoreCollection<Servicio>
   constructor(private readonly afs: AngularFirestore)/* injectando firestore */ {
@@ -16,7 +16,7 @@ export class ServiciosService {
     this.getServicios(); // se instancia getservicios (it becomes lighter text)
   }
 
-  onDeleteServicio(servId: string): Promise<void> {
+  onDeleteServicios(servId: string): Promise<void> {
     return new Promise( async (resolve, reject) => {
       try {
         const result = await this.serviciosCollection.doc(servId).delete();

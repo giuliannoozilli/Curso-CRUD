@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NavigationExtras, Router } from '@angular/router';
+import { ServiciosService } from '../servicio.service';
 
 @Component({
   selector: 'app-list',
@@ -7,12 +8,13 @@ import { NavigationExtras, Router } from '@angular/router';
   styleUrls: ['./list.component.css'],
 })
 export class ListComponent implements OnInit {
+  servicio$ = this.serviciosSvc.servicios // we reference the serviciossvc from the constructor parameter
   navigationExtras: NavigationExtras = {
     state: {
       value: null, // you can call this variable anything, employees, etc
     },
   };
-
+  /*
   fakeData = [
     {
       nombre: 'Hazbin Hotel',
@@ -42,8 +44,8 @@ export class ListComponent implements OnInit {
       ubicacion: 'Neuquen 108',
       descripcion: 'hi uwu i loooove art im a artsy type 😊 ',
     },
-  ];
-  constructor(private router: Router) {}
+  ]; */
+  constructor(private router: Router, private serviciosSvc: ServiciosService) {}
 
   ngOnInit(): void {}
 
@@ -56,7 +58,13 @@ export class ListComponent implements OnInit {
 
     this.router.navigate(['details'], this.navigationExtras);
   }
-  onGotoDelete(item: any): void {
-    alert('Borra2!');
+  async onGotoDelete(servId: string/*item: any*/): /*void*/ Promise<void> {
+    // 1:43:38
+    try {
+      await this.serviciosSvc.onDeleteServicios(servId);
+      alert('Borra2!');
+    } catch (err) {
+      console.log(err);
+    }
   }
 }

@@ -15,7 +15,8 @@
       </tr>
     </thead>
     <tbody>
-      <tr class="table-info" *ngFor="let item of fakeData">
+      <tr class="table-info" *ngFor="let item of servicio$ | async">
+        <!--1:45:31 Async para que nos devuelta el resultado? -->
         <!--[0, 1, 2, 3, 4, 5]-->
         <th scope="row">{{ item.nombre }}</th>
         <td>{{ item.formacontacto }}</td>

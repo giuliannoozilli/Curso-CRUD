@@ -14,8 +14,13 @@ export class ListComponent implements OnInit {
       value: null, // you can call this variable anything, employees, etc
     },
   };
+<<<<<<< HEAD
   /*
   fakeData = [
+=======
+
+  /* fakeData = [
+>>>>>>> 24788d0b8c78f13108116c714fa011a534d9ea1a
     {
       nombre: 'Hazbin Hotel',
       formacontacto: 'leo@gmail.com',
@@ -44,8 +49,13 @@ export class ListComponent implements OnInit {
       ubicacion: 'Neuquen 108',
       descripcion: 'hi uwu i loooove art im a artsy type 😊 ',
     },
+<<<<<<< HEAD
   ]; */
   constructor(private router: Router, private serviciosSvc: ServiciosService) {}
+=======
+  ];*/
+  constructor(private router: Router) {}
+>>>>>>> 24788d0b8c78f13108116c714fa011a534d9ea1a
 
   ngOnInit(): void {}
 

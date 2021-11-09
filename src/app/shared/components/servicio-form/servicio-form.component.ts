@@ -12,7 +12,11 @@ import { Servicio } from '../../models/servicio.interface';
 export class ServicioFormComponent implements OnInit {
   servicio: Servicio = null;
   servicioForm: FormGroup;
-  constructor(private router: Router, private fb: FormBuilder, private serviciosSvc: ServiciosService) {
+  constructor(
+    private router: Router,
+    private fb: FormBuilder,
+    private serviciosSvc: ServiciosService
+  ) {
     const navigation = this.router.getCurrentNavigation();
     this.servicio = navigation?.extras?.state?.value;
     this.initForm();
@@ -34,8 +38,15 @@ export class ServicioFormComponent implements OnInit {
     if (this.servicioForm.valid) {
       const servicio = this.servicioForm.value;
       const servicioId = this.servicio?.id || null;
+<<<<<<< HEAD
       this.serviciosSvc.onSaveServicio(servicio, servicioId) // aqui se espera el formulario y un id
       this.servicioForm.reset()
+=======
+      this.serviciosSvc.onSaveServicio(servicio, servicioId); // aqui se espera el formulario y un id
+      // try saving a service and seeing if it gets saved to the collection
+      this.servicioForm.reset();
+      alert('Guardado a firebase!');
+>>>>>>> 24788d0b8c78f13108116c714fa011a534d9ea1a
     }
   }
   onGoBackToList(): void {

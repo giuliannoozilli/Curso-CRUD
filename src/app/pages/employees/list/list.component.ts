@@ -13,7 +13,7 @@ export class ListComponent implements OnInit {
     },
   };
 
-  fakeData = [
+  /* fakeData = [
     {
       nombre: 'Hazbin Hotel',
       formacontacto: 'leo@gmail.com',
@@ -42,7 +42,7 @@ export class ListComponent implements OnInit {
       ubicacion: 'Neuquen 108',
       descripcion: 'hi uwu i loooove art im a artsy type 😊 ',
     },
-  ];
+  ];*/
   constructor(private router: Router) {}
 
   ngOnInit(): void {}

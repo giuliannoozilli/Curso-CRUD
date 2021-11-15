@@ -14,7 +14,6 @@ export class ListComponent implements OnInit {
       value: null, // you can call this variable anything, employees, etc
     },
   };
-<<<<<<< HEAD
   /*
   fakeData = [
 =======
@@ -52,10 +51,6 @@ export class ListComponent implements OnInit {
 <<<<<<< HEAD
   ]; */
   constructor(private router: Router, private serviciosSvc: ServiciosService) {}
-=======
-  ];*/
-  constructor(private router: Router) {}
->>>>>>> 24788d0b8c78f13108116c714fa011a534d9ea1a
 
   ngOnInit(): void {}
 
